@@ -1,9 +1,13 @@
-$('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+$('.message a').click(function() {
+  $('form').animate({
+    height: "toggle",
+    opacity: "toggle"
+  }, "slow");
 });
 
 (function() {
   $(function() {
+  
     var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
     expandMyMenu = function() {
       return $("nav.sidebar").removeClass("sidebar-menu-collapsed").addClass("sidebar-menu-expanded");

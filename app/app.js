@@ -43,10 +43,50 @@ angular
           }
         }
       })
+      .state('courses', {
+        url: '/courses',
+        templateUrl: 'auth/courses.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              $state.go('home');
+            }, function(error){
+              return;
+            });
+          }
+        }
+      })
+      .state('search', {
+        url: '/search',
+        templateUrl: 'auth/search.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              $state.go('home');
+            }, function(error){
+              return;
+            });
+          }
+        }
+      })
       .state('register', {
         url: '/register',
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'auth/register.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              $state.go('home');
+            }, function(error){
+              return;
+            });
+          }
+        }
+      })
+      .state('chat', {
+        url: '/chat',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'channels/index.html',
         resolve: {
           requireNoAuth: function($state, Auth){
             return Auth.$requireAuth().then(function(auth){
