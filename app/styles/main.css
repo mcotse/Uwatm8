@@ -30,20 +30,19 @@ body {
 .main {
   position:absolute;
   top:0;
-  left:0;
+  left:51px;
   height:100%;
   width:100%;
 }
 
-.sidebar {
-  display:inline-block;
-  width:19.5%;
-  vertical-align: top;
-  height:100%;
-  background:#4d394b;
-  position:relative;
-  overflow-y:scroll;
-  padding-bottom:100px;
+.chat-sidebar {
+    width: 150px;
+    vertical-align: top;
+    height: 100%;
+    background: #4d394b;
+    position: relative;
+    overflow-y: scroll;
+    padding-bottom: 100px;
 }
 
 .sidebar .slack-name {
