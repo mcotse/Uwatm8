@@ -664,3 +664,140 @@ nav.sidebar ul li {
   bottom: 0px;
   margin: 0 auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+max-width: 960px;
+}
+
+.top50 {
+margin-top: 50px;
+}
+
+.row {
+margin-bottom: 50px;
+}
+
+/***item-1 Login box*********************************************************************/
+
+.item-1 {
+width: 100%;
+height: auto;
+background: #25A9CC;
+
+-moz-box-shadow: 0 0 5px #000;
+-webkit-box-shadow: 0 0 5px#000;
+box-shadow: 0 0 5px #000;
+}
+
+.item-1 h1 {
+font-size: 24px;
+margin-top: 0px;
+}
+
+.img-container {
+width: 100%;
+height: 150px;
+text-align: center;
+}
+
+.img-container a {
+margin: 0px auto;
+text-align: center;
+}
+
+.img-container a img {
+border-radius: 50%;
+border: 3px solid #fff;
+margin-top: 20px;
+width: 100px;
+height: 100px;
+}
+
+.robin-key {
+width: 100%;
+height: auto;
+background: #fff;
+float: left;
+}
+
+.robin-key p {
+font-size: 15px;
+color: #828282;
+float: left;
+line-height: 42px;
+margin-bottom: 0px;
+margin-left: 20px;
+}
+
+.robin-key ul {
+float: right;
+margin: 0px;
+padding: 0px;
+}
+
+.robin-key ul li {
+padding: 4px 12px;
+margin-top: 6px;
+border-right: 1px solid #ddd;
+color: #3f4c6b;
+list-style: none;
+float: left;
+}
+
+.robin-key ul li a {
+color: #3f4c6b;
+}
+
+.robin-key ul li a:hover {
+color: #242D3F;
+}
+
+.robin-key ul li:last-child {
+border-right: none;
+}
+
+ul.follow-list {
+margin: 0px;
+padding: 0px;
+background: #3f4c6b;
+width: 100%;
+}
+
+ul.follow-list li {
+width: 25%;
+float: left;
+list-style: none;
+padding: 8px 0px;
+background: #111F28;
+}
+
+ul.follow-list li a {
+padding: 2px 14px;
+display: inline-block;
+color: #fff;
+font-size: 13px;
+border-right: 1px solid #1C3544;
+
+}
+
+ul.follow-list li:last-child a {
+border-right: none;
+}
+center, center *{ color: #ffffff !important; font-size:14pt; }
