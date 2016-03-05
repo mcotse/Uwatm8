@@ -4,7 +4,7 @@ angular.module('angularfireSlackApp')
 
     channelsCtrl.profile = profile;
     channelsCtrl.channels = channels;
-
+    channelsCtrl.users = Users.all;
     channelsCtrl.getDisplayName = Users.getDisplayName;
     channelsCtrl.getGravatar = Users.getGravatar;
 
@@ -17,10 +17,8 @@ angular.module('angularfireSlackApp')
       name: ''
     };
     channelsCtrl.createChannel = function(){
-      channelsCtrl.channels.$add(channelsCtrl.newChannel).then(function(){
-        channelsCtrl.newChannel = {
-          name: ''
-        };
+      channelsCtrl.channels.$add(channelsCtrl.newChannel).then(function(ref){
+        $state.go('channels.messages', {channelId: ref.key()});
       });
     };
 

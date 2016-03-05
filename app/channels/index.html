@@ -17,6 +17,12 @@
       <div class="channel create">
         <a ui-sref="channels.create">+ create channel</a>
       </div>
+      <div class="list-head">Direct Messages</div>
+      <div class="channel" ng-repeat="user in channelsCtrl.users">
+        <a ng-if="user.$id !== channelsCtrl.profile.$id" ui-sref="channels.direct({uid: user.$id})" ui-sref-active="selected">
+          {{ user.displayName }}
+        </a>
+      </div>
     </div>
 
     <div class="my-info">

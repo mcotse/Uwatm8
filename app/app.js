@@ -115,6 +115,21 @@ angular
           }
         }
       })
+      .state('channels.direct', {
+        url: '/{uid}/messages/direct',
+        templateUrl: 'channels/messages.html',
+        controller: 'MessagesCtrl as messagesCtrl',
+        resolve: {
+          messages: function($stateParams, Messages, profile){
+            return Messages.forUsers($stateParams.uid, profile.$id).$loaded();
+          },
+          channelName: function($stateParams, Users){
+            return Users.all.$loaded().then(function(){
+              return '@'+Users.getDisplayName($stateParams.uid);
+            });
+          }
+        }
+      });
 
     $urlRouterProvider.otherwise('/');
   })
