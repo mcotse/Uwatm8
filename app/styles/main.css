@@ -9,7 +9,8 @@
 
 
 body {
-  background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);
+  /*background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);
+*/
   font: 13px 'Lucida sans', Arial, Helvetica;
   color: #eee;
   text-align: center;
@@ -595,7 +596,7 @@ color: #EF3B3A;
 
 
 nav.sidebar-menu-collapsed {
-width: 50px; }
+width: 90px; }
 nav.sidebar-menu-expanded {
 width: 106px; }
 nav.sidebar {
