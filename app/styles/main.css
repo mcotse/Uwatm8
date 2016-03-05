@@ -734,6 +734,7 @@ height: 100px;
 width: 100%;
 height: auto;
 background: #fff;
+box-shadow: 0 0 5px #000;
 float: left;
 }
 
@@ -743,7 +744,7 @@ color: #828282;
 float: left;
 line-height: 42px;
 margin-bottom: 0px;
-margin-left: 20px;
+margin-left: 15px;
 }
 
 .robin-key ul {
@@ -778,6 +779,7 @@ margin: 0px;
 padding: 0px;
 background: #3f4c6b;
 width: 100%;
+box-shadow: 0 0 5px #000;
 }
 
 ul.follow-list li {
@@ -786,6 +788,7 @@ float: left;
 list-style: none;
 padding: 8px 0px;
 background: #111F28;
+box-shadow: 0 0 5px #000;
 }
 
 ul.follow-list li a {
@@ -794,10 +797,35 @@ display: inline-block;
 color: #fff;
 font-size: 13px;
 border-right: 1px solid #1C3544;
+box-shadow: 0 0 5px #000;
 
 }
 
 ul.follow-list li:last-child a {
 border-right: none;
 }
-center, center *{ color: #ffffff !important; font-size:14pt; }
+
+
+
+.courses{
+  margin: 75px auto;
+  width: 50%;
+  padding: 20px;
+  height: 750px;
+  background: #f4f4f4;
+  border-radius: 0px;
+  box-shadow: 0 0 5px #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  color: #404040;
+
+}
+
+
+#panel{
+
+  border: 1px solid dashed #FFF;
+  height:400px;
+  width:400px;
+  background-image:url('http://farm4.static.flickr.com/3550/3367798587_c24c797f0f.jpg');color:white;font-weight:bold;
+}
