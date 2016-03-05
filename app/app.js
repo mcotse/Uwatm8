@@ -174,30 +174,3 @@ angular
     $urlRouterProvider.otherwise('/');
   })
   .constant('FirebaseUrl', 'https://uwatm8.firebaseio.com/');
-/************************************************************/
-
-/*var password = $('#password');
-var confirm_password = $('#confirm_password');
-
-function validatePassword(){
-  if(password.value() != confirm_password.value()) {
-    alert("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
-
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;*/
-
-/*
-$(document).ready(function(){
-
-  $("#switch")
-  .button()
-  .click(function(){
-
-      $("#panel").toggle("slide");
-  });
-});
-*/
