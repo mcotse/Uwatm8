@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>  
+
+<head>
+  <title>UWATM8?</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <link href="main.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      height: 100%;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBadM_KM_KulfnBqd5y7aAt01OrEFLJhWI"></script>
+  <script>
+      // In the following example, markers appear when the user clicks on the map.
+      // Each marker is labeled with a single alphabetical character.
+      var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var labelIndex = 0;
+
+      var locations = [
+      ['SLC', 43.471708, -80.5454086, 4],
+      ['Davis', 43.4664221, -80.5418748, 5],
+      ['m3', 43.4731239, -80.5446435, 3],
+      ['Waterloo', 43.472264, -80.6148974, 2]
+      ['Conestoga', 43.497773,-80.5277298, 1]
+ 
+    ];
+
+      function initialize() {
+        var waterloo = {lat: 43.472264, lng: -80.6148974};
+        var slc = {lat: 43.471708, lng: -80.5454086};
+        var davis = {lat: 43.4664221, lng: -80.5418748};
+        var conestoga = {lat: 43.497773, lng: -80.5277298};
+        var detroit = {lat: 42.3315326, lng: -83.1157942};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          //zoom: 20,
+          //center: slc
+        });
+
+var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: new google.maps.LatLng(43.471708, -80.5454086),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    var markers = new Array();
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      markers.push(marker);
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    function AutoCenter() {
+      //  Create a new viewpoint bound
+      var bounds = new google.maps.LatLngBounds();
+      //  Go through each...
+      $.each(markers, function (index, marker) {
+      bounds.extend(marker.position);
+      });
+      //  Fit these bounds to the map
+      map.fitBounds(bounds);
+    }
+    AutoCenter();
+
+        // This event listener calls addMarker() when the map is clicked.
+        google.maps.event.addListener(map, 'click', function(event) {
+          addMarker(event.latLng, map);
+        });
+
+        // Add a marker at the locations specified.
+        addMarker(waterloo, map);
+        addMarker(slc, map);
+        addMarker(davis, map);
+        addMarker(detroit, map);
+      }
+
+      // Adds a marker to the map.
+      function addMarker(location, map) {
+        // Add the marker at the clicked location, and add the next-available label
+        // from the array of alphabetical characters.
+        var marker = new google.maps.Marker({
+          position: location,
+          label: labels[labelIndex++ % labels.length],
+          map: map
+        });
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+
+
+  <div id="map"></div>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/print">Login</a>
+        </li>
+        <li>
+          <a href="/web">Register</a>
+        </li>
+        <li>
+          <a href="/bio">Courses</a>
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+    <img src="https://uwaterloo.ca/brand-guidelines/sites/ca.brand-guidelines/files/resize/uploads/images/universityofwaterloo_logo_vert_rev_rgb_1-300x195.png"/>  
+
+    <form class="form-wrapper cf">
+     <input type="text" placeholder="Enter your courses..." required>
+     <button type="submit">Search</button>
+   </form>
+
+   <div class="login-page">
+    <div class="form">
+      <form cl
+      ass="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="username"/>
+      <input type="password" placeholder="password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>
+<p> &copy; UWATM8</p>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJAMSkwFh_UL1KpSoE7S0s6YzdCOyZU-0&callback=initMap"
+async defer></script>
+</body>
+
+</html>
+
+
