@@ -8,7 +8,6 @@ angular.module('angularfireSlackApp')
     channelsCtrl.getDisplayName = Users.getDisplayName;
     channelsCtrl.getGravatar = Users.getGravatar;
     Users.setOnline(profile.$id);
-    Users.setLocation(profile.$id);
 
     //logout function
     channelsCtrl.logout = function(){
@@ -20,12 +19,8 @@ angular.module('angularfireSlackApp')
     };
 
     //location function
-    channelsCtrl.logout = function(){
-      channelsCtrl.profile.online = null;
-      channelsCtrl.profile.$save().then(function(){
-        Auth.$unauth();
-        $state.go('home');
-      });
+    channelsCtrl.setLocation = function(){
+      Users.setLocation(profile.$id);
     };
 
     channelsCtrl.newChannel = {
