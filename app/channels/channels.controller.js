@@ -1,7 +1,7 @@
 angular.module('angularfireSlackApp')
   .controller('ChannelsCtrl', function($state, Auth, Users, profile, channels){
     var channelsCtrl = this;
-
+    var locationtoggle = 0;
     channelsCtrl.profile = profile;
     channelsCtrl.channels = channels;
     channelsCtrl.users = Users.all;
@@ -20,7 +20,15 @@ angular.module('angularfireSlackApp')
 
     //location function
     channelsCtrl.setLocation = function(){
-      Users.setLocation(profile.$id);
+
+      if (!locationtoggle){
+        Users.setLocation(profile.$id);
+        locationtoggle = 1;
+      }
+      else {
+        Users.unsetLocation(profile.$id);
+        locationtoggle = 0;
+      }
     };
 
     channelsCtrl.newChannel = {

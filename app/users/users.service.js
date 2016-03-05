@@ -30,15 +30,30 @@ angular.module('angularfireSlackApp')
       },
       setLocation: function(uid){
         var connected = $firebaseObject(connectedRef);
+        console.log(usersRef.child(uid));
         var location = $firebaseArray(usersRef.child(uid+'/location'));
-
+        var coordinates = {
+          lat : "32.1233",
+          lng : "12.23213"
+        };
+        console.log(coordinates);
         connected.$watch(function (){
           if(connected.$value === true){
-            location.$add(true).then(function(connectedRef){
+            location.$add(coordinates).then(function(connectedRef){
               connectedRef.onDisconnect().remove();
               var locationKey = connectedRef.key();
               console.log(locationKey); // returns location in the array
             });
+          }
+        });
+      },
+      unsetLocation: function(uid){
+        var user= new Firebase(FirebaseUrl+'users/'+uid);
+        user.child('location').remove(function(error){
+            if (error) {
+            console.log("Error:", error);
+          } else {
+            console.log("Removed successfully!");
           }
         });
       }
