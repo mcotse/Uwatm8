@@ -7,7 +7,7 @@ $('.message a').click(function() {
 
 (function() {
   $(function() {
-  
+
     var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
     expandMyMenu = function() {
       return $("nav.sidebar").removeClass("sidebar-menu-collapsed").addClass("sidebar-menu-expanded");

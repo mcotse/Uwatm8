@@ -505,13 +505,22 @@ margin: auto;
 }
 .form {
 position: relative;
-z-index: 1;
 background: #FFFFFF;
 max-width: 360px;
 margin: 0 auto 100px;
 padding: 45px;
 text-align: center;
 box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+
+
 }
 .form input {
 font-family: "Roboto", sans-serif;
@@ -648,3 +657,10 @@ nav.sidebar ul li {
       color: white !important; }
       nav.sidebar ul li.active a.expandable:hover {
         color: white !important; }
+
+
+.copyright{
+  position:fixed;
+  bottom: 0px;
+  margin: 0 auto;
+}
