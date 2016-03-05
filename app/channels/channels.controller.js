@@ -2,6 +2,8 @@ angular.module('angularfireSlackApp')
   .controller('ChannelsCtrl', function($state, Auth, Users, profile, channels){
     var channelsCtrl = this;
     var locationtoggle = 0;
+    var lat;
+    var long;
     channelsCtrl.profile = profile;
     channelsCtrl.channels = channels;
     channelsCtrl.users = Users.all;
@@ -30,6 +32,20 @@ angular.module('angularfireSlackApp')
         locationtoggle = 0;
       }
     };
+    // function getLocation() {
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.watchPosition(setCoordinates);
+    //     } else {
+    //         alert("Geolocation is not enabled!");
+    //     }
+    // }
+    // function setCoordinates(position) {
+    //     lat = position.coords.latitude;
+    //     long = position.coords.longitude;
+    //     console.log(lat)
+    //     console.log(long)
+    // }
+
 
     channelsCtrl.newChannel = {
       name: ''

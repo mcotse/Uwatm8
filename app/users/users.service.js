@@ -1,3 +1,23 @@
+var position;
+$(function(){
+    var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
+  function success(pos) {
+    position = pos.coords;
+
+
+  };
+
+  function error(err) {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
+  };
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
+});
 angular.module('angularfireSlackApp')
   .factory('Users', function($firebaseArray, $firebaseObject, FirebaseUrl){
     var usersRef = new Firebase(FirebaseUrl+'users');
@@ -30,12 +50,12 @@ angular.module('angularfireSlackApp')
         });
       },
       setLocation: function(uid){
+
         var connected = $firebaseObject(connectedRef);
-        console.log(usersRef.child(uid));
         var location = $firebaseArray(usersRef.child(uid+'/location'));
         var coordinates = {
-          lat : "32.1233",
-          lng : "12.23213"
+          lat : position.latitude,
+          lng : position.longitude
         };
         console.log(coordinates);
         connected.$watch(function (){

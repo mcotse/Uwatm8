@@ -1,18 +1,4 @@
 'use strict';
-var lat;
-var long;
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(setCoordinates);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-function setCoordinates(position) {
-    lat = position.coords.latitude;
-    long = position.coords.longitude;
-}
 
 /**
  * @ngdoc overview
