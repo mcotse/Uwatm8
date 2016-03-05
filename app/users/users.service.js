@@ -43,21 +43,28 @@ angular.module('angularfireSlackApp')
             location.$add(coordinates).then(function(connectedRef){
               connectedRef.onDisconnect().remove();
               locationKey = connectedRef.key();
-              console.log(locationKey); // returns location in the array
+
+              console.log(FirebaseUrl+'users/'+uid+'/location/'+locationKey);
             });
           }
         });
       },
       unsetLocation: function(uid){
-        // var location = new Firebase(FirebaseUrl+'users/'+uid+'/location/'+locationKey);
-        var locationArray = [];
-        var location = $firebaseArray(usersRef.child(uid+'/location/'));
-        console.log(locationKey);
-        console.log(location.$getRecord(locationKey));
-        console.log(location);
+        var location = new Firebase(FirebaseUrl+'users/'+uid+'/location/'+locationKey);
+        var data;
 
-        locationArray[0]= location.$getRecord("lat");
-        locationArray[1]= location.$getRecord("lng");
+        location.on("value", function(snapshot) {
+          data = snapshot.val();  // Alerts "San Francisco"
+        });
+        // var locationArray = [];
+        var locationArray = $.map(data, function(value, index) {
+            return [value];
+        });
+        //
+        // locationArray[0]['lat']= location[0].lat;
+        // locationArray[0]['lng']= location[1].lng;
+        // locationArray[0]= location.$getRecord("lat");
+        // locationArray[1]= location.$getRecord("lng");
 
         console.log(locationArray);
 
