@@ -94,8 +94,13 @@ angular.module('angularfireSlackApp')
         });
       },
       setClass: function(uid){
-        var classes = $firebaseArray(usersRef.child(uid+'/class'));
-        classes.$add(fakeclass);
+        var classes = new Firebase(FirebaseUrl+'users/'+uid+'/class/');
+        classes.set('CS290');
+        //
+        // classes[2].class = "CS260";
+        // classes.$save(2).then(function(userRef) {
+        //   userRef.key() === classes[2].$id; // true
+        // });
       },
     };
 
