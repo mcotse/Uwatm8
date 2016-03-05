@@ -1,6 +1,8 @@
 angular.module('angularfireSlackApp')
   .controller('ProfileCtrl', function($state, md5, auth, profile){
   var profileCtrl = this;
+  //fake class
+  var userclass = "CS250";
 
   profileCtrl.profile = profile;
   profileCtrl.updateProfile = function(){
@@ -9,5 +11,7 @@ angular.module('angularfireSlackApp')
       $state.go('channels');
     });
   };
+
+
 
 });

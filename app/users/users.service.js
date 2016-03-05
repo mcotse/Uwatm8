@@ -1,4 +1,7 @@
 var position;
+//made up class
+var fakeclass = "CS250";
+
 $(function(){
     var options = {
     enableHighAccuracy: true,
@@ -74,17 +77,10 @@ angular.module('angularfireSlackApp')
         var data;
 
         location.on("value", function(snapshot) {
-          data = snapshot.val();  // Alerts "San Francisco"
         });
-        // var locationArray = [];
         var locationArray = $.map(data, function(value, index) {
             return [value];
         });
-        //
-        // locationArray[0]['lat']= location[0].lat;
-        // locationArray[0]['lng']= location[1].lng;
-        // locationArray[0]= location.$getRecord("lat");
-        // locationArray[1]= location.$getRecord("lng");
 
         console.log(locationArray);
 
@@ -97,15 +93,10 @@ angular.module('angularfireSlackApp')
           }
         });
       },
-      // getlocation: function(uid){
-      //   var location = $firebaseArray(usersRef.child(uid+'/location/'+locationKey));
-      //   console.log(usersRef.child(uid+'/location/'+locationKey));
-      //   var locationArray = [];
-      //
-      //   locationArray[0]['lat']= location[i].lat;
-      //   locationArray[1]['lng']= location[i].lng;
-      //   console.log(locationArray);
-      // }
+      setClass: function(uid){
+        var classes = $firebaseArray(usersRef.child(uid+'/class'));
+        classes.$add(fakeclass);
+      },
     };
 
     return Users;
