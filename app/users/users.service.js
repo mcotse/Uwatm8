@@ -3,6 +3,7 @@ angular.module('angularfireSlackApp')
     var usersRef = new Firebase(FirebaseUrl+'users');
     var connectedRef = new Firebase(FirebaseUrl+'.info/connected');
     var users = $firebaseArray(usersRef);
+    var locationKey;
 
     var Users = {
       getProfile: function(uid){
@@ -41,13 +42,25 @@ angular.module('angularfireSlackApp')
           if(connected.$value === true){
             location.$add(coordinates).then(function(connectedRef){
               connectedRef.onDisconnect().remove();
-              var locationKey = connectedRef.key();
+              locationKey = connectedRef.key();
               console.log(locationKey); // returns location in the array
             });
           }
         });
       },
       unsetLocation: function(uid){
+        // var location = new Firebase(FirebaseUrl+'users/'+uid+'/location/'+locationKey);
+        var locationArray = [];
+        var location = $firebaseArray(usersRef.child(uid+'/location/'));
+        console.log(locationKey);
+        console.log(location.$getRecord(locationKey));
+        console.log(location);
+
+        locationArray[0]= location.$getRecord("lat");
+        locationArray[1]= location.$getRecord("lng");
+
+        console.log(locationArray);
+
         var user= new Firebase(FirebaseUrl+'users/'+uid);
         user.child('location').remove(function(error){
             if (error) {
@@ -56,7 +69,16 @@ angular.module('angularfireSlackApp')
             console.log("Removed successfully!");
           }
         });
-      }
+      },
+      // getlocation: function(uid){
+      //   var location = $firebaseArray(usersRef.child(uid+'/location/'+locationKey));
+      //   console.log(usersRef.child(uid+'/location/'+locationKey));
+      //   var locationArray = [];
+      //
+      //   locationArray[0]['lat']= location[i].lat;
+      //   locationArray[1]['lng']= location[i].lng;
+      //   console.log(locationArray);
+      // }
     };
 
     return Users;
