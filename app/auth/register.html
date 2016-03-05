@@ -27,19 +27,23 @@
 </head>
 <body>-->
   <form class="register" ng-submit="authCtrl.register()">
+    <fieldset>
+
+
     <!--<div class="register-switch">
       <input type="radio" name="sex" value="M" id="sex_m" class="register-switch-input" checked>
       <label for="sex_m" class="register-switch-label">Male</label>
       <input type="radio" name="sex" value="F" id="sex_f" class="register-switch-input">
       <label for="sex_f" class="register-switch-label">Female</label>
     </div>-->
-    <input type="email" class="register-input" placeholder="Email address" ng-model="authCtrl.user.email">
+    <input type="email" class="register-input" placeholder="Email address" ng-model="authCtrl.user.email" required>
     <!--<input type="first_name" class="register-input" placeholder="First Name">
     <input type="last_namee" class="register-input" placeholder="Last Name">-->
-    <input type="password" class="register-input" placeholder="Password" ng-model="authCtrl.user.password">
-    <input type="confirm_password" class="register-input" placeholder="Confirm Password" ng-model="authCtrl.user.password">
+    <input type="password" class="register-input" placeholder="Password" ng-model="authCtrl.user.password" id="password" required>
+    <input type="password" class="register-input" placeholder="Confirm Password" ng-model="authCtrl.user.confirm_password" id="confirm_password" required>
     <!--<input type="confirm_password" class="register-input" placeholder="Confirm Password">-->
     <input type="submit" value="Create Account" class="register-button">
+</fieldset>
   </form>
 
 <!--</body>

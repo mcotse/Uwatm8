@@ -7,7 +7,7 @@ $('.message a').click(function() {
 
 (function() {
   $(function() {
-  
+
     var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
     expandMyMenu = function() {
       return $("nav.sidebar").removeClass("sidebar-menu-collapsed").addClass("sidebar-menu-expanded");
@@ -40,3 +40,18 @@ $('.message a').click(function() {
   });
 
 }).call(this);
+
+
+/*var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;*/
