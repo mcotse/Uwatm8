@@ -27,6 +27,18 @@ angular.module('angularfireSlackApp')
             });
           }
         });
+      },
+      setLocation: function(uid){
+        var connected = $firebaseObject(connectedRef);
+        var location = $firebaseArray(usersRef.child(uid+'/location'));
+
+        connected.$watch(function (){
+          if(connected.$value === true){
+            location.$add(true).then(function(connectedRef){
+              connectedRef.onDisconnect().remove();
+            });
+          }
+        });
       }
     };
 
