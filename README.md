@@ -1,4 +1,6 @@
 # UWatM8
+Find a m8 to study with when you lonely   ͡° ͜ʖ ͡° 
+
 ## Uwaterloo Eng+Math Hack 2016
 
 ### Made by
