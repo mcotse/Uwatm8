@@ -524,11 +524,9 @@ margin: 0 0 15px;
 padding: 15px;
 box-sizing: border-box;
 font-size: 14px;
+color: #000;
 }
 
-.form input:focus {
-  color: #000;
-}
 .form button {
 font-family: "Roboto", sans-serif;
 text-transform: uppercase;
