@@ -35,9 +35,6 @@ angular.module('angularfireSlackApp')
     channelsCtrl.setClass = function(){
       Users.setClass(profile.$id);
     }
-    channelsCtrl.setinfo = function(){
-      Users.setinfo(profile.$id);
-    }
 
     channelsCtrl.newChannel = {
       name: ''

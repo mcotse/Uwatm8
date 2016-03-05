@@ -2,8 +2,6 @@ var position;
 //made up class
 var fakeclass = "CS250";
 
-var allUsers = [];
-
 $(function(){
     var options = {
     enableHighAccuracy: true,
@@ -27,10 +25,8 @@ angular.module('angularfireSlackApp')
   .factory('Users', function($firebaseArray, $firebaseObject, FirebaseUrl){
     var usersRef = new Firebase(FirebaseUrl+'users');
     var connectedRef = new Firebase(FirebaseUrl+'.info/connected');
-    var infoRef = new Firebase(FirebaseUrl+'onlineusers');
     var users = $firebaseArray(usersRef);
     var locationKey;
-    var infoKey;
 
     var Users = {
       getProfile: function(uid){
@@ -99,36 +95,12 @@ angular.module('angularfireSlackApp')
       },
       setClass: function(uid){
         var classes = new Firebase(FirebaseUrl+'users/'+uid+'/class/');
-        var info = new Firebase(FirebaseUrl+'onlineusers/');
-        classes.set('gayyyyy101');
-      },
-      setinfo: function(uid){
-        var info = $firebaseArray(infoRef);
-        // var info = new Firebase(FirebaseUrl+'onlineusers/');
-        //push updated info into firebase, then push the unique id into the array(alluser) to keep track
-        info.$add({
-          Name: users.$getRecord(uid).displayName,
-          lat:position.latitude,
-          lng:position.longitude,
-          class: fakeclass
-        }).then(function(connectedRef){
-          connectedRef.onDisconnect().remove();
-          infoKey = connectedRef.key();
-
-          allUsers.push(infoKey);
-          console.log(allUsers);
-        });
-
+        classes.set('CS290');
         //
-        // var uniqueinfoKey = pushinfo.key;
-        // console.log(uniqueinfoKey);
-        // allUsers = allUsers.concat(uniqueinfoKey);
-        // console.log(allUsers);
-      },
-      getinfo: function(uid){
-        var info = new Firebase(FirebaseUrl+'onlineusers/');
-
-
+        // classes[2].class = "CS260";
+        // classes.$save(2).then(function(userRef) {
+        //   userRef.key() === classes[2].$id; // true
+        // });
       },
     };
 
