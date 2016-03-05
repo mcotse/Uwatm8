@@ -36,6 +36,8 @@ angular.module('angularfireSlackApp')
           if(connected.$value === true){
             location.$add(true).then(function(connectedRef){
               connectedRef.onDisconnect().remove();
+              var locationKey = connectedRef.key();
+              console.log(locationKey); // returns location in the array
             });
           }
         });
