@@ -83,7 +83,6 @@ angular
           }
         }
       })
-
       .state('register', {
         url: '/register',
         controller: 'AuthCtrl as authCtrl',
@@ -102,20 +101,6 @@ angular
         url: '/chat',
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'channels/index.html',
-        resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              $state.go('home');
-            }, function(error){
-              return;
-            });
-          }
-        }
-      })
-      .state('userprof', {
-        url: '/userprof',
-        controller: 'AuthCtrl as authCtrl',
-        templateUrl: 'auth/profile.html',
         resolve: {
           requireNoAuth: function($state, Auth){
             return Auth.$requireAuth().then(function(auth){
