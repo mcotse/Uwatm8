@@ -102,6 +102,17 @@ angular
         templateUrl: 'channels/create.html',
         controller: 'ChannelsCtrl as channelsCtrl'
       })
+      .state('channels.messages', {
+        url: '/{channelId}/messages',
+        resolve: {
+          messages: function($stateParams, Messages){
+            return Messages.forChannel($stateParams.channelId).$loaded();
+          },
+          channelName: function($stateParams, channels){
+            return '#'+channels.$getRecord($stateParams.channelId).name;
+          }
+        }
+      })
 
     $urlRouterProvider.otherwise('/');
   })
