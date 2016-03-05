@@ -8,6 +8,12 @@
     <div class="channel-list">
       <div class="list-head">Channels</div>
     </div>
+    <div class="channel-list">
+      <div class="list-head">Channels</div>
+      <div class="channel" ng-repeat="channel in channelsCtrl.channels">
+        <a># {{ channel.name }}</a>
+      </div>
+    </div>
 
     <div class="my-info">
       <img class="user-pic" ng-src="{{ channelsCtrl.getGravatar(channelsCtrl.profile.$id) }}" />
@@ -24,5 +30,8 @@
       </div>
     </div>
 
+  </div>
+  <div class="message-pane">
+    <ui-view></ui-view>
   </div>
 </div>
